@@ -1,0 +1,9 @@
+{
+  "extends": "dtslint/dtslint.json",
+  "rules": {
+    // We don't care about linting here!
+    // TODO: Is there a better way to disable linting and only check types?
+    "file-name-casing": false,
+    "no-useless-files": false
+  }
+}

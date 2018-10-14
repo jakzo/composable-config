@@ -1,0 +1,18 @@
+# Ignore caches
+node_modules/
+.*cache
+
+# Ignore builds
+dist/
+
+# Ignore all logs
+*.log
+coverage/
+
+# Ignore editor generated files
+.vscode/
+.idea
+.iml
+
+# Ignore OS generated files
+.DS_Store
