@@ -2,6 +2,16 @@
   "name": "composable-config",
   "version": "0.1.0",
   "description": "Composable app configuration with reading, conversion, validation and type support built-in.",
+  "homepage": "https://github.com/jakzo/composable-config#composable-config",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakzo/composable-config.git"
+  },
+  "author": "Jack Field",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jakzo/composable-config/issues"
+  },
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf ./dist",
