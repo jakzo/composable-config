@@ -1,6 +1,6 @@
 # Composable Config - TypeScript
 
-This library is designed to work beautifully with TypeScript. When you declare the shapes of your config, it will automatically infer the type of the outputted config value object.
+This library is designed to work beautifully with TypeScript. When you declare the shapes of your config, it will automatically infer the type of the outputted config value object. Notice in the quick-start example in the readme that there's not a single type declared. Everything is inferred automatically!
 
 However there are a few gotchas which you should be wary of:
 
