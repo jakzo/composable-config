@@ -11,7 +11,7 @@ _Composable app configuration with loading, conversion, validation and type supp
 ## Quick Start
 
 ```sh
-npm i composable-config io-ts
+npm i composable-config
 ```
 
 ```js
