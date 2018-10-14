@@ -26,7 +26,8 @@ export const mapShape = <S extends ConfigShape>(
         values[key] = onType(value, key);
       } else {
         onEntry(key);
-        values[key] = mapShape(value, onType, onEntry, onExit) as any; // TODO: Why is this cast needed?
+        // TODO: Why is this cast needed?
+        values[key] = mapShape(value, onType, onEntry, onExit) as any;
         onExit();
       }
     } else {

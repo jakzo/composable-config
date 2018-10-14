@@ -17,13 +17,14 @@
     "dist/"
   ],
   "scripts": {
-    "clean": "rimraf ./dist",
-    "build:noclean": "tsc",
-    "build": "run-s clean build:noclean",
+    "lint": "tslint -p .",
     "test:types": "dtslint ./src/types/__test__",
     "test:unit": "jest",
-    "test": "run-s test:unit test:types",
-    "test:watch": "jest --watchAll"
+    "test": "run-s lint test:unit test:types",
+    "test:watch": "jest --watchAll",
+    "clean": "rimraf ./dist",
+    "build:noclean": "tsc",
+    "build": "run-s clean build:noclean"
   },
   "dependencies": {
     "fp-ts": "^1.9.0",
@@ -39,6 +40,9 @@
     "prettier": "^1.14.3",
     "rimraf": "^2.6.2",
     "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.1.3"
   }
 }

@@ -6,6 +6,8 @@
 import * as t from 'io-ts';
 import { typeWithConversion } from './util';
 
+/* tslint:disable:variable-name */
+
 const numberConverter = (m: t.mixed, c: t.Context): t.Validation<number> => {
   if (Array.isArray(m)) return t.failure(m, c);
   const n = Number(m);
