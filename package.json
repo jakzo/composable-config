@@ -13,6 +13,9 @@
     "url": "https://github.com/jakzo/composable-config/issues"
   },
   "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "clean": "rimraf ./dist",
     "build:noclean": "tsc",
