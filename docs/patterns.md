@@ -13,7 +13,7 @@ Sometimes you have extra requirements you want to assert for your config values.
 import { createConfig } from 'composable-config';
 import * as ct from 'composable-config/io';
 const shape = createConfig({
-  address: ct.Integer.refinement(n => n % 2 === 0),
+  address: ct.refinement(ct.Integer, n => n % 2 === 0),
 });
 ```
 
