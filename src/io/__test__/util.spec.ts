@@ -1,8 +1,8 @@
 import * as t from 'io-ts';
-import { addConvertor } from '../util';
+import { conversion } from '../util';
 
-describe('addConvertor()', () => {
-  const number = addConvertor(t.number, (m, c) => {
+describe('conversion()', () => {
+  const number = conversion(t.number, (m, c) => {
     const n = +(m as any);
     if (isNaN(n)) return t.failure(m, c);
     return t.success(n);
@@ -22,6 +22,6 @@ describe('addConvertor()', () => {
   });
 
   test('adds name', () => {
-    expect(addConvertor(t.any, t.success, 'test').name).toBe('test');
+    expect(conversion(t.any, t.success, 'test').name).toBe('test');
   });
 });

@@ -20,10 +20,10 @@ const shape = createConfig({
 This will throw an exception if it does not receive an even integer. If instead you wanted to round odd numbers down to an even number, you could do this:
 
 ```js
-import { createConfig, addConvertor } from 'composable-config';
+import { createConfig } from 'composable-config';
 import * as ct from 'composable-config/io';
 const shape = createConfig({
-  address: addConvertor(ct.Integer, m => {
+  address: ct.conversion(ct.Integer, m => {
     if (typeof m === 'number' && m % 2 === 1) return success(m - 1);
     return ct.success(m);
   }),

@@ -1,6 +1,6 @@
 import * as t from 'io-ts';
 import { Integer } from './io';
-import { addConvertor } from './util';
+import { conversion } from './util';
 
 /* tslint:disable:variable-name */
 
@@ -14,7 +14,7 @@ export const Port = t.refinement(Integer, n => n >= 1 && n <= 0xffff, 'Port');
  * Accepts a JSON string or a JSON value (null, boolean, number, string, array, object).
  * Returns a JSON value.
  */
-export const Json = addConvertor(
+export const Json = conversion(
   t.union([t.null, t.number, t.boolean, t.string, t.object], 'Json'),
   (m, c) => {
     if (typeof m === 'string') {

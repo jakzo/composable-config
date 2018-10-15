@@ -4,7 +4,7 @@
  */
 
 import * as t from 'io-ts';
-import { addConvertor } from './util';
+import { conversion } from './util';
 
 /* tslint:disable:variable-name */
 
@@ -14,14 +14,14 @@ const numberConverter = (m: t.mixed, c: t.Context): t.Validation<number> => {
   if (isNaN(n)) return t.failure(m, c);
   return t.success(n);
 };
-export const number = addConvertor(t.number, numberConverter);
+export const number = conversion(t.number, numberConverter);
 
-export const string = addConvertor(t.string, (m, c) => {
+export const string = conversion(t.string, (m, c) => {
   if (typeof m === 'object' || m === undefined) return t.failure(m, c);
   return t.success(String(m));
 });
 
-export const boolean = addConvertor(t.boolean, (m, c) => {
+export const boolean = conversion(t.boolean, (m, c) => {
   switch (typeof m === 'string' ? m.toLowerCase() : m) {
     case true:
     case 1:
@@ -44,10 +44,10 @@ export const array = <T extends t.Mixed>(
   separator: string | RegExp | null = ',',
   name?: string,
 ) =>
-  addConvertor(t.array(type, name), (m, c) => {
+  conversion(t.array(type, name), (m, c) => {
     if (Array.isArray(m)) return t.success(m);
     if (separator != null && typeof m === 'string') return t.success(m.split(separator));
     return t.failure(m, c);
   });
 
-export const Integer = addConvertor(t.Integer, numberConverter);
+export const Integer = conversion(t.Integer, numberConverter);
