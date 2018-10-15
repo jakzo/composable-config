@@ -1,4 +1,4 @@
-import { remove, writeFile } from 'fs-extra';
+import { writeFile } from 'fs-extra';
 import { file } from 'tempy';
 import { safeDump } from 'js-yaml';
 import { none, some } from 'fp-ts/lib/Option';
@@ -22,10 +22,6 @@ describe('loader', () => {
       await writeFile(filename, safeDump(contents));
     });
 
-    afterEach(async () => {
-      await remove(filename);
-    });
-
     test('works', () => {
       expect(yamlLoader(filename).getDefaults()).toEqual(some(contents));
     });
@@ -36,10 +32,6 @@ describe('loader', () => {
 
     beforeEach(async () => {
       await writeFile(filename, safeDump(contents), { encoding: 'ucs2' });
-    });
-
-    afterEach(async () => {
-      await remove(filename);
     });
 
     test('works', () => {

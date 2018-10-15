@@ -1,4 +1,4 @@
-import { writeJson, remove } from 'fs-extra';
+import { writeJson } from 'fs-extra';
 import { file } from 'tempy';
 import { none, some } from 'fp-ts/lib/Option';
 import jsonLoader from '../json';
@@ -21,10 +21,6 @@ describe('loader', () => {
       await writeJson(filename, contents);
     });
 
-    afterEach(async () => {
-      await remove(filename);
-    });
-
     test('works', () => {
       expect(jsonLoader(filename).getDefaults()).toEqual(some(contents));
     });
@@ -35,10 +31,6 @@ describe('loader', () => {
 
     beforeEach(async () => {
       await writeJson(filename, contents, { encoding: 'ucs2' });
-    });
-
-    afterEach(async () => {
-      await remove(filename);
     });
 
     test('works', () => {
