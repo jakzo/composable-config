@@ -7,8 +7,11 @@ import * as t from 'io-ts';
 export const addConvertor = <T extends t.Any>(
   type: T,
   convert: (m: t.mixed, c: t.Context) => t.Validation<t.TypeOf<T>>,
+  name: string = type.name,
 ): T =>
+  // TODO: It's probably less hacky and not much harder to wrap it in a new type...
   Object.assign(Object.create(Object.getPrototypeOf(type)), type, {
+    name,
     validate(m: t.mixed, c: t.Context) {
       const converted = convert(m, c);
       if (converted.isLeft()) return converted;

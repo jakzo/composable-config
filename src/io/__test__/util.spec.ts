@@ -14,10 +14,14 @@ describe('addConvertor()', () => {
 
   test('fails when cannot convert', () => {
     const m = 'not a number';
-    expect(number.decode(m)).toEqual(t.failure(m, t.getDefaultContext(number)));
+    expect(number.decode(m).isLeft()).toBe(true);
   });
 
   test('does not modify original type', () => {
-    expect(t.number.decode('5')).toEqual(t.failure('5', t.getDefaultContext(t.number)));
+    expect(t.number.decode('5').isLeft()).toBe(true);
+  });
+
+  test('adds name', () => {
+    expect(addConvertor(t.any, t.success, 'test').name).toBe('test');
   });
 });

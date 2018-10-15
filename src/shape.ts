@@ -25,6 +25,7 @@ export const mapShape = <S extends ConfigShape>(
       if (isConfigTypeDescriptor(value)) {
         values[key] = onType(value, key);
       } else {
+        // TODO: Keep track of context and pass this to hooks (and maybe io-ts types?)
         onEntry(key);
         // TODO: Why is this cast needed?
         values[key] = mapShape(value, onType, onEntry, onExit) as any;
