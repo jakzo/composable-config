@@ -2,6 +2,12 @@
   "name": "composable-config",
   "version": "0.2.0",
   "description": "Composable app configuration with reading, conversion, validation and type support built-in.",
+  "keywords": [
+    "node",
+    "browser",
+    "full stack",
+    "typescript"
+  ],
   "homepage": "https://github.com/jakzo/composable-config#composable-config",
   "repository": {
     "type": "git",
