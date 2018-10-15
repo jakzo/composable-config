@@ -1,6 +1,6 @@
 # Composable Config - Common Patterns
 
-This page illustrates a few examples of how to use Composable Config with partivular project setups and requirements.
+This page illustrates a few examples of how to use Composable Config with particular project setups and requirements.
 
 - [File Structure - Grouped by Domain](#File-Structure---Grouped-by-Domain)
 
