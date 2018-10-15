@@ -1,6 +1,6 @@
 {
   "name": "composable-config",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Composable app configuration with reading, conversion, validation and type support built-in.",
   "homepage": "https://github.com/jakzo/composable-config#composable-config",
   "repository": {
