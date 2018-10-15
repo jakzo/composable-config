@@ -30,7 +30,7 @@ const shape = createConfig({
 });
 ```
 
-Note that `m` may not necessarily be a number. If it is coming from an environment variable, for example, it will be a string. Once this callback has completed, the returned value will be passed into `ct.Integer`'s convertor which will convert it into an integer.
+Note that `m` may not necessarily be a number. If it is coming from an environment variable, for example, it will be a string. Once this callback has completed, the returned value will be passed into `ct.Integer`'s converter which will convert it into an integer.
 
 ## File Structure - Grouped by Domain
 
