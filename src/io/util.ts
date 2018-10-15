@@ -4,7 +4,7 @@ import * as t from 'io-ts';
  * Adds type conversion capability to an existing io-ts type.
  * @returns `t.success(convertedValue)` or `t.failure(originalValue, c)` on failure.
  */
-export const typeWithConversion = <T extends t.Any>(
+export const addConvertor = <T extends t.Any>(
   type: T,
   convert: (m: t.mixed, c: t.Context) => t.Validation<t.TypeOf<T>>,
 ): T =>

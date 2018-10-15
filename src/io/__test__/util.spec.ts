@@ -1,8 +1,8 @@
 import * as t from 'io-ts';
-import { typeWithConversion } from '../util';
+import { addConvertor } from '../util';
 
-describe('typeWithConversion()', () => {
-  const number = typeWithConversion(t.number, (m, c) => {
+describe('addConvertor()', () => {
+  const number = addConvertor(t.number, (m, c) => {
     const n = +(m as any);
     if (isNaN(n)) return t.failure(m, c);
     return t.success(n);

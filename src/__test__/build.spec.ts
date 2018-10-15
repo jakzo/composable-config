@@ -1,5 +1,5 @@
 import * as t from 'io-ts';
-import { option, some, none } from 'fp-ts/lib/Option';
+import { some, none } from 'fp-ts/lib/Option';
 import { build, getDefaultValue } from '../build';
 import * as ct from '../io';
 
@@ -250,11 +250,11 @@ describe('build()', () => {
 
 describe('getDefaultValue()', () => {
   test('empty', () => {
-    expect(getDefaultValue([], [], 'x', { _: t.any })).toEqual(option.zero());
+    expect(getDefaultValue([], [], 'x', { _: t.any })).toEqual(none);
   });
 
   test('matches default', () => {
-    expect(getDefaultValue([], [{ a: 1, x: 2, z: 3 }], 'x', { _: t.any })).toEqual(option.of(2));
+    expect(getDefaultValue([], [{ a: 1, x: 2, z: 3 }], 'x', { _: t.any })).toEqual(some(2));
   });
 
   test('matches first in list', () => {
@@ -264,7 +264,7 @@ describe('getDefaultValue()', () => {
       'x',
       { _: t.any },
     );
-    expect(result).toEqual(option.of(2));
+    expect(result).toEqual(some(2));
   });
 
   test('matches type', () => {
@@ -281,7 +281,7 @@ describe('getDefaultValue()', () => {
         'x',
         { _: t.any },
       ),
-    ).toEqual(option.of(2));
+    ).toEqual(some(2));
   });
 
   test('skips unmatched type', () => {
@@ -298,6 +298,6 @@ describe('getDefaultValue()', () => {
         'x',
         { _: t.any },
       ),
-    ).toEqual(option.of(1));
+    ).toEqual(some(1));
   });
 });
