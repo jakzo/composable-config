@@ -17,7 +17,7 @@ const numberConverter = (m: t.mixed, c: t.Context): t.Validation<number> => {
 export const number = conversion(t.number, numberConverter);
 
 export const string = conversion(t.string, (m, c) => {
-  if (typeof m === 'object' || m === undefined) return t.failure(m, c);
+  if (typeof m === 'object' || m == null) return t.failure(m, c);
   return t.success(String(m));
 });
 

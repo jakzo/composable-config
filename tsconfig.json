@@ -10,6 +10,8 @@
     "removeComments": false,
     "stripInternal": false,
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
 
     "strict": true,
     "noImplicitAny": true,

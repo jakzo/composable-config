@@ -1,5 +1,6 @@
 import * as t from 'io-ts';
-import { Integer } from './io';
+import isIp from 'is-ip';
+import { Integer, string } from './io';
 import { conversion } from './util';
 
 /* tslint:disable:variable-name */
@@ -9,6 +10,12 @@ import { conversion } from './util';
  * Returns a number.
  */
 export const Port = t.refinement(Integer, n => n >= 1 && n <= 0xffff, 'Port');
+
+/**
+ * Accepts a valid IP4/6 IP address string.
+ * Returns the IP address string.
+ */
+export const IpAddress = t.refinement(string, isIp, 'IpAddress');
 
 /**
  * Accepts a JSON string or a JSON value (null, boolean, number, string, array, object).

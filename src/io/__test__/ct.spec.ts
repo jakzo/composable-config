@@ -23,6 +23,23 @@ describe('Port', () => {
   });
 });
 
+describe('IpAddress', () => {
+  test('valid', () => {
+    expect(ct.IpAddress.decode('192.168.1.1')).toEqual(t.success('192.168.1.1'));
+    expect(ct.IpAddress.decode('2001:db8:0:1234:0:567:8:1')).toEqual(
+      t.success('2001:db8:0:1234:0:567:8:1'),
+    );
+  });
+
+  test('invalid', () => {
+    expect(ct.IpAddress.decode(0).isLeft()).toBe(true);
+    expect(ct.IpAddress.decode(123456789).isLeft()).toBe(true);
+    expect(ct.IpAddress.decode('123.123.-2.123').isLeft()).toBe(true);
+    expect(ct.IpAddress.decode('192.168.1.1/24').isLeft()).toBe(true);
+    expect(ct.IpAddress.decode('1.1..1').isLeft()).toBe(true);
+  });
+});
+
 describe('Json', () => {
   test('valid', () => {
     expect(ct.Json.decode('{"a":1,"x":{"b":"q","c":false},"d":9,"y":{}}')).toEqual(
